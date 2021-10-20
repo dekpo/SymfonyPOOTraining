@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+
 use App\Entity\User;
 use App\Form\UserType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -22,6 +23,15 @@ class UserController extends AbstractController{
         $form->handleRequest($request);
 
         if($form->isSubmitted() && $form->isValid()){
+
+            $userInfos = $form->getData();
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($userInfos);
+            $entityManager->flush();
+
+            //var_dump($userInfos);
+            //die;
+
             return new Response("Merci d'avoir renseigné le formulaire");
         }
 
