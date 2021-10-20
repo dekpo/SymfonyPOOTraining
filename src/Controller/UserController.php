@@ -25,9 +25,9 @@ class UserController extends AbstractController{
         if($form->isSubmitted() && $form->isValid()){
 
             $userInfos = $form->getData();
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->persist($userInfos);
-            $entityManager->flush();
+            $orm = $this->getDoctrine()->getManager();
+            $orm->persist($userInfos);
+            $orm->flush();
 
             //var_dump($userInfos);
             //die;
