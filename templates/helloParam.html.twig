@@ -16,9 +16,10 @@
     <body>
     <h1>{{ title | upper }}</h1>
         <ul>
-        {% for item in list %}
-        <li>{{ item }}</li>
-        {% endfor %}
+        <li><a href="{{ path('helloName',{'user':'Pierre'}) }}">Hello Pierre</a></li>
+        <li><a href="{{ path('helloName',{'user':'Paul'}) }}">Hello Paul</a></li>
+        <li><a href="{{ path('helloName',{'user':'Jacques'}) }}">Hello Jacques</a></li>
+        <li><a href="{{ path('helloName',{'user':1234}) }}">Hello Momo</a></li>
         </ul>
     </body>
 </html>
